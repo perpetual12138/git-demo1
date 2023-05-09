@@ -94,6 +94,22 @@ model.fit(X, y)
 Pre = model.predict(test_features)
 
 
+model_metrics_name = [explained_variance_score, mean_absolute_error, mean_squared_error, r2_score]  # 回归评估指标对象集
+model_metrics_list = []  # 回归评估指标列表
+
+
+print(test_labels)
+
+pre = np.array(Pre)
+print(Pre)
+
+tmp_list = []  # 每个内循环的临时结果列表
+for m in model_metrics_name:  # 循环每个指标对象
+    score = m(test_labels, Pre)  # 计算每个回归指标结果
+    
+    strr = str(score)
+    print(":%f" %score)
+    #tmp_list.append(tmp_score)  # 将结果存入每个内循环的临时结果列表
 
 
 
